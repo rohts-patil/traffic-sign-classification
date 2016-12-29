@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Traffic_Signs_Recognition_updated</title>
+<title>Traffic_Signs_Recognition</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -15464,7 +15464,7 @@ M3GQJEnVTBwkSVI1EwdJklTt/wPnDAVWg1x1xwAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> I have just converted the image to grayscale.<br>I then normalized the values buy using np.mean and np.std since I don't want high variance in the data.
+<p><strong>Answer:</strong> I have just converted the image to grayscale because this makes it relatively easy to process the data(also time for training decreases), read it into a memory array, and process with our algorithm.<br>I then normalized the values buy using np.mean and np.std since I don't want high variance in the data.
 Finally, as the input was sorted by class, I randomized it to avoid overfitting.</p>
 
 </div>
@@ -19532,7 +19532,8 @@ rAMAAEBnhHUAAADojLAOAAAAnRHWAQAAoDP/H0aLFselIij0AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> I have plotted the images in grayscale above only. Four signs were chosen because they look similar to images from the database and one was random one.<br>
-I wanted to see if they would get classified correctly.</p>
+I wanted to see if they would get classified correctly.<br>
+I have selected image of traffic sign speed limit 20 MPH because same kind of image is there in training data but it has also got blurry "zone" word printed in it. From this I wanted to know model's repsonse for that.</p>
 
 </div>
 </div>
@@ -19553,7 +19554,7 @@ I wanted to see if they would get classified correctly.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> So 3 images were classified correctly and other were not classified. This can be confirmed by mapping classes from signnames.csv to the class having maximum probability.</p>
+<p><strong>Answer:</strong> So two images were classified correctly and other were not classified. This can be confirmed by mapping classes from signnames.csv to the class having maximum probability. So the accuracy will be 2/5 that is 40% for new images whereas on the test data set it is 89.6%</p>
 
 </div>
 </div>
@@ -19692,7 +19693,12 @@ TopKV2(values=array([[  1.00000000e+00,   7.78706197e-11],
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> In the above cell you can see that Softmax probability has been displayed as an array.</p>
+<p><strong>Answer:</strong> In the above cell you can see that Softmax probability has been displayed as an array.
+<br>For stop sign it is rightly predicting it as stop Sign with probability ~1.
+<br>For Pedestrains sign it is wrongly predicting as General Caution with probability 0.709.
+<br>For speed limit of 20 km/h it is wrongly predicting as Yield sign with proabability 0.99 which is pretty bad.
+<br>For speed limit of 80 km/h it is wrongly predicting as speed limit of 50 km/h sign with probabilty 0.707 and righly predicting with probability 0.292.
+<br>For general caution sign it is rightly predicting as general caution sign with probability 0.998.</p>
 
 </div>
 </div>
